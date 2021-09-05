@@ -1,13 +1,14 @@
 import { useContext } from 'react'
 import { NotificationContext } from '../contexts/NotificationContext'
+import './styles/styleListNotifikasi.css'
 
 export default function ListNotifications() {
-  const { notifications, getNotifications, setAsRead } =
+  const { notifications, getNotifications, handleReadMessage } =
     useContext(NotificationContext)
 
   const onRead = (id) => {
-    setAsRead(id)
-    getNotifications()
+    handleReadMessage(id)
+    ;async () => await getNotifications()
   }
 
   return (
@@ -23,18 +24,30 @@ export default function ListNotifications() {
         <tbody>
           {notifications.map((notification) => (
             <tr key={notification.id}>
-              <td>{notification.createdAt}</td>
+              <td>{notification.createdAt.substring(0, 10)}</td>
               <td>{notification.message}</td>
               <td>
-                <div className="btn-list">
-                  <button
-                    type="button"
-                    className="btn btn-icon"
-                    onClick={() => onRead(notification.id)}
-                  >
-                    Read
-                  </button>
-                </div>
+                {notification.status == false ? (
+                  <div className="btn-list">
+                    <button
+                      type="button"
+                      className="btn btn-icon dibaca"
+                      onClick={() => onRead(notification.id)}
+                    >
+                      Baca
+                    </button>
+                  </div>
+                ) : (
+                  <div className="btn-list">
+                    <button
+                      type="button"
+                      className="btn btn-icon"
+                      onClick={() => onRead(notification.id)}
+                    >
+                      Telah Dibaca
+                    </button>
+                  </div>
+                )}
               </td>
             </tr>
           ))}

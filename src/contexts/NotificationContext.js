@@ -21,15 +21,20 @@ export default function NotificationContextProvider({ children }) {
     getData()
   }, [])
 
-  const SetAsRead = async (message) => {
+  const setAsRead = async (message) => {
     try {
-      await notificationService.update(message)
+      await notificationService.setAsRead(
+        {
+          status: 0,
+        },
+        message,
+      )
       getData()
       document.querySelector('body').scrollIntoView({
         behavior: 'smooth',
       })
     } catch (err) {
-      if (err.response.status === 401) {
+      if (err.response.status === 400) {
         history.push({
           pathname: '/login',
           state: { message: 'Silakan login terlebih dahulu' },
@@ -39,7 +44,12 @@ export default function NotificationContextProvider({ children }) {
   }
 
   const getTotalMessage = () => {
-    return notifications.length
+    let belumDibaca = notifications.filter((x) => x.status == false)
+    return belumDibaca.length
+  }
+
+  const handleReadMessage = (id) => {
+    setAsRead(id)
   }
 
   return (
@@ -49,7 +59,8 @@ export default function NotificationContextProvider({ children }) {
         isLoading,
         getNotification: getData,
         getTotalMessage,
-        SetAsRead,
+        setAsRead,
+        handleReadMessage,
       }}
     >
       {children}
