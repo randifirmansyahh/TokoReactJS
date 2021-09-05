@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import useTransactions from 'hooks/useTransactions'
 import { formatNumber } from 'utils/number'
+import './styles/styleListTransactions.css'
 
 export default function ListTransactions() {
   const [transactions, isLoading] = useTransactions()
@@ -14,7 +15,7 @@ export default function ListTransactions() {
             <th>Items</th>
             <th>Total Items</th>
             <th>Total Prices</th>
-            <th width="90px">Status</th>
+            <th width="150px">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -57,7 +58,13 @@ export default function ListTransactions() {
                     ),
                   )}
                 </td>
-                <td>{transaction.status}</td>
+                <td>
+                  {transaction.status == 0 ? (
+                    <h3 className="belum-dibayar">Belum dibayar</h3>
+                  ) : (
+                    <h3 className="menunggu-konfirmasi">Menunggu konfirmasi</h3>
+                  )}
+                </td>
               </tr>
             ))}
 

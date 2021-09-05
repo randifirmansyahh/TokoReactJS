@@ -23,3 +23,7 @@ button {
 .bayangan:hover {
   background-color: #ebebeb;
 }
+
+.text-pesan-baru {
+  color: green;
+}
