@@ -1,13 +1,13 @@
-import { format } from "date-fns";
-import useTransactions from "../hooks/useTransactions";
+import { format } from 'date-fns'
+import useTransactions from 'hooks/useTransactions'
+import { formatNumber } from 'utils/number'
 
 export default function ListTransactions() {
-  const [transactions, isLoading] = useTransactions();
+  const [transactions, isLoading] = useTransactions()
 
-  console.log(transactions);
   return (
-    <div className="content">
-      <table className="styled-table">
+    <div className="table-responsive">
+      <table className="table table-vcenter card-table table-striped">
         <thead>
           <tr>
             <th width="300px">Date Transaction</th>
@@ -21,38 +21,40 @@ export default function ListTransactions() {
           {isLoading && (
             <tr>
               <td colSpan={3} align="center">
-                Loading Transaction ...{" "}
+                Loading Transaction ...{' '}
               </td>
             </tr>
           )}
           {!isLoading &&
-            transactions.map((transaction, index) => (
-              <tr key={index}>
+            transactions.map((transaction) => (
+              <tr key={transaction.id}>
                 <td>
                   {format(
                     new Date(transaction.createdAt),
-                    "dd MMMM yyyy HH:ii"
+                    'dd MMMM yyyy HH:ii',
                   )}
                 </td>
                 <td>
                   <ul>
-                    {transaction.carts.map((cart, index) => (
-                      <li key={index}>
-                        {cart.product.name} ({cart.quantity} items)
-                      </li>
+                    {transaction.carts.map((cart) => (
+                      <li key={cart.id}>{cart.product.name}</li>
                     ))}
                   </ul>
                 </td>
                 <td>
-                  {transaction.carts.reduce(
-                    (acc, cart) => acc + cart.quantity,
-                    0
+                  {formatNumber(
+                    transaction.carts.reduce(
+                      (acc, cart) => acc + cart.quantity,
+                      0,
+                    ),
                   )}
                 </td>
                 <td>
-                  {transaction.carts.reduce(
-                    (acc, cart) => acc + cart.quantity * cart.product.price,
-                    0
+                  {formatNumber(
+                    transaction.carts.reduce(
+                      (acc, cart) => acc + cart.quantity * cart.product.price,
+                      0,
+                    ),
                   )}
                 </td>
                 <td>{transaction.status}</td>
@@ -69,5 +71,5 @@ export default function ListTransactions() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
