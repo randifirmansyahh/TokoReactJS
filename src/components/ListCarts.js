@@ -100,7 +100,7 @@ export default function ListCarts() {
           {carts.length === 0 && (
             <tr>
               <td colSpan={5} align="center">
-                Data tidak tersedia
+                Yah keranjangmu kosong, ayo cari makanan favoritmu sekarang !
               </td>
             </tr>
           )}

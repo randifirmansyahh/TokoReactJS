@@ -77,7 +77,6 @@ const Header = () => {
                     </Link>
                   </li>
                   <li style={{ float: 'right' }}>
-                    {/* //TODO : notifikasi */}
                     <Link
                       to="/notifications"
                       className="nav-link px-0 carts-icon"
