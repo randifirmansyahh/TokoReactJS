@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { CartContext } from 'contexts/CartContext'
 import { AuthContext } from 'contexts/AuthContext'
 import 'react-confirm-alert/src/react-confirm-alert.css'
+import './styles/styleHeader.css'
 
 const Header = () => {
   const { getTotalQuantity } = useContext(CartContext)
@@ -24,51 +25,92 @@ const Header = () => {
           <h1 className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <Link to="/">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxaR0g7gpULqqHqYQjrOuFPEzjgsKICQQSJEdZoFnwv-SR6DzNNn8Ba5K-x36tu6oMnV8&usqp=CAU"
-                width="110"
-                height="32"
+                src="https://banner2.cleanpng.com/20190611/lpa/kisspng-logo-portable-network-graphics-image-brand-r-png-sorgusuna-uygun-resimleri-bedava-indir-5d0027f9775ea4.2689206515602913214889.jpg"
                 alt="Tabler"
+                style={{ borderRadius: '100%' }}
                 className="navbar-brand-image px-2"
               />
             </Link>
-            Toko React
+            Toko Randi Firmansyah
           </h1>
           <div className="navbar-nav flex-row order-md-last">
             {me && (
               <div className="nav-item dropdown d-none d-md-flex me-3">
-                <Link
-                  to="/carts"
-                  className="nav-link px-0 carts-icon"
-                  data-bs-toggle="dropdown"
-                  tabIndex="-1"
-                  aria-label="Show notifications"
-                >
-                  <AnimateOnChange
-                    animationIn="bounceIn"
-                    animationOut="bounceOut"
-                    durationOut={500}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                <ul>
+                  <li style={{ float: 'right', listStyle: null }}>
+                    <Link
+                      to="/carts"
+                      className="nav-link px-0 carts-icon"
+                      data-bs-toggle="dropdown"
+                      tabIndex="-1"
+                      aria-label="Show notifications"
                     >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <circle cx="6" cy="19" r="2" />
-                      <circle cx="17" cy="19" r="2" />
-                      <path d="M17 17h-11v-14h-2" />
-                      <path d="M6 5l14 1l-1 7h-13" />
-                    </svg>
-                    <span className="badge bg-red">{totalQuantity}</span>
-                  </AnimateOnChange>
-                </Link>
+                      <AnimateOnChange
+                        animationIn="bounceIn"
+                        animationOut="bounceOut"
+                        durationOut={500}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <circle cx="6" cy="19" r="2" />
+                          <circle cx="17" cy="19" r="2" />
+                          <path d="M17 17h-11v-14h-2" />
+                          <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                        <span className="badge bg-red">{totalQuantity}</span>
+                      </AnimateOnChange>
+                    </Link>
+                  </li>
+                  <li style={{ float: 'right' }}>
+                    {/* //TODO : notifikasi */}
+                    <Link
+                      to="/notifications"
+                      className="nav-link px-0 carts-icon"
+                      data-bs-toggle="dropdown"
+                      tabIndex="-1"
+                      aria-label="Show notifications"
+                    >
+                      <AnimateOnChange
+                        animationIn="bounceIn"
+                        animationOut="bounceOut"
+                        durationOut={500}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+                          <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                        </svg>
+                        <span className="badge bg-red">{totalQuantity}</span>
+                      </AnimateOnChange>
+                    </Link>
+                  </li>
+                </ul>
               </div>
             )}
 

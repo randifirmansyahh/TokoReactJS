@@ -101,7 +101,7 @@ const Navigation = () => {
               {me && (
                 <NavLink
                   to="/logout"
-                  className="btn btn-outline-white"
+                  className="btn btn-outline-red"
                   target="_blank"
                   rel="noreferrer"
                   onClick={(e) => {
