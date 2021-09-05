@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types'
 import { createContext, useEffect, useState } from 'react'
-import notificationService from './../services/notification'
+import { useHistory } from 'react-router-dom'
+import notificationService from 'services/notification'
+
 export const NotificationContext = createContext()
 
 export default function NotificationContextProvider({ children }) {
+  const history = useHistory()
   const [notifications, setNotifications] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   async function getData() {
+    setIsLoading(true)
     const data = await notificationService.getAll()
     setNotifications(data)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -32,13 +38,17 @@ export default function NotificationContextProvider({ children }) {
     }
   }
 
-  alert(notifications)
+  const getTotalMessage = () => {
+    return notifications.length
+  }
 
   return (
     <NotificationContext.Provider
       value={{
         notifications,
+        isLoading,
         getNotification: getData,
+        getTotalMessage,
         SetAsRead,
       }}
     >
