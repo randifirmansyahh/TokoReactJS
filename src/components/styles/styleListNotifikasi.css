@@ -2,3 +2,24 @@
   background-color: green;
   color: white;
 }
+
+.icon-button {
+  margin: 0 20px 0 0;
+}
+
+button {
+  width: 120px;
+}
+
+.dibaca:hover {
+  background-color: gray;
+  color: white;
+}
+
+.telah-dibaca:hover {
+  cursor: default;
+}
+
+.bayangan:hover {
+  background-color: #ebebeb;
+}
