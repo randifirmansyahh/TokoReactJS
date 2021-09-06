@@ -20,10 +20,6 @@ button {
   cursor: default;
 }
 
-.bayangan:hover {
-  background-color: #ebebeb;
-}
-
 .text-pesan-baru {
   color: green;
 }

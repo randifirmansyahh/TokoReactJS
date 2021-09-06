@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { NotificationContext } from '../contexts/NotificationContext'
 import './styles/styleListNotifikasi.css'
+import './styles/styleAll.css'
 
 export default function ListNotifications() {
   const { notifications, getNotifications, handleReadMessage } =

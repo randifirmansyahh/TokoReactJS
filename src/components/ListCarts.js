@@ -5,6 +5,8 @@ import { AuthContext } from 'contexts/AuthContext'
 import { formatNumber } from 'utils/number'
 import { confirmAlert } from 'react-confirm-alert'
 import CustomUI from './confirm-alert/CustomUI'
+import './styles/styleListCarts.css'
+import './styles/styleAll.css'
 
 export default function ListCarts() {
   const {
@@ -69,14 +71,14 @@ export default function ListCarts() {
         </thead>
         <tbody>
           {carts.map((cart) => (
-            <tr key={cart.id}>
+            <tr key={cart.id} className="bayangan">
               <td>
                 <img src={cart.product?.image} width="50px" alt="" />
               </td>
               <td>{cart.product?.name}</td>
-              <td>{formatNumber(cart.product?.price)}</td>
-              <td>{formatNumber(cart.quantity)}</td>
-              <td>{formatNumber(cart.product?.price * cart.quantity)}</td>
+              <td>Rp. {formatNumber(cart.product?.price)}</td>
+              <td>{formatNumber(cart.quantity)} pcs</td>
+              <td>Rp. {formatNumber(cart.product?.price * cart.quantity)}</td>
               <td>
                 <div className="btn-list">
                   <button
@@ -109,12 +111,21 @@ export default function ListCarts() {
         {carts.length > 0 && (
           <tfoot>
             <tr>
-              <td></td>
-              <td colSpan={2}>
+              <td colSpan={3} align="center">
+                <div className="garis-total" />
                 <strong>Total</strong>
+                <div className="garis-total" />
               </td>
-              <td>{getTotalQuantity()}</td>
-              <td colSpan={3}>{getTotalAmount()}</td>
+              <td>
+                <div className="garis-total" />
+                {getTotalQuantity()} pcs
+                <div className="garis-total" />
+              </td>
+              <td colSpan={3}>
+                <div className="garis-total" />
+                Rp. {getTotalAmount()}
+                <div className="garis-total" />
+              </td>
             </tr>
           </tfoot>
         )}

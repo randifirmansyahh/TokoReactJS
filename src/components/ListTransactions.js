@@ -2,6 +2,7 @@ import { format } from 'date-fns'
 import useTransactions from 'hooks/useTransactions'
 import { formatNumber } from 'utils/number'
 import './styles/styleListTransactions.css'
+import './styles/styleAll.css'
 
 export default function ListTransactions() {
   const [transactions, isLoading] = useTransactions()
@@ -28,7 +29,7 @@ export default function ListTransactions() {
           )}
           {!isLoading &&
             transactions.map((transaction) => (
-              <tr key={transaction.id}>
+              <tr key={transaction.id} className="bayangan">
                 <td>
                   {format(
                     new Date(transaction.createdAt),
@@ -48,9 +49,11 @@ export default function ListTransactions() {
                       (acc, cart) => acc + cart.quantity,
                       0,
                     ),
-                  )}
+                  )}{' '}
+                  pcs
                 </td>
                 <td>
+                  Rp.{' '}
                   {formatNumber(
                     transaction.carts.reduce(
                       (acc, cart) => acc + cart.quantity * cart.product.price,
