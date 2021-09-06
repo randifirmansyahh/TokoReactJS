@@ -10,10 +10,11 @@ const Navigation = () => {
   const { pathname } = location
   const { me, signOut } = useContext(AuthContext)
   const { getCart, getTotalQuantity } = useContext(CartContext)
-  const { getTotalMessage } = useContext(NotificationContext)
+  const { notifications, getTotalMessage } = useContext(NotificationContext)
 
   const totalQuantity = getTotalQuantity()
   const totalMessage = getTotalMessage()
+  const totalTransaksi = notifications.length
 
   return (
     <div className="navbar-expand-md">
@@ -73,6 +74,9 @@ const Navigation = () => {
                     </svg>
                   </span>
                   <span className="nav-link-title">Transactions</span>
+                  {totalTransaksi > 0 ? (
+                    <span className="badge bg-red">{totalTransaksi}</span>
+                  ) : null}
                 </NavLink>
               </li>
               <li

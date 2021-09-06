@@ -1,0 +1,10 @@
+.btn-hover:hover {
+  background-color: green;
+  color: white;
+}
+
+.bayangan-hover:hover {
+  background-color: green;
+  padding: 1px 1px 1px 1px;
+  border-radius: 5px;
+}
