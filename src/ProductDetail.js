@@ -3,6 +3,7 @@ import useProduct from 'hooks/useProduct'
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import './components/styles/styleAll.css'
 
 export default function ProductDetail({ match }) {
   const [product, isLoading] = useProduct(match.params.slug)
@@ -39,7 +40,7 @@ export default function ProductDetail({ match }) {
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="rounded"
+                          className="rounded zoom zoom-hover"
                         />
                       </div>
                       <div className="col">
@@ -58,7 +59,7 @@ export default function ProductDetail({ match }) {
                         <div className="mt-3">
                           <button
                             type="button"
-                            className="btn btn-primary ms-auto"
+                            className="btn btn-primary ms-auto btn-hover btn-zoom"
                             onClick={() => addToCart(product)}
                           >
                             Add to Cart

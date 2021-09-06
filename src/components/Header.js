@@ -26,17 +26,17 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <h1 className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <Link to="/">
+          <Link to="/">
+            <h1 className="zoom navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
               <img
                 src="https://banner2.cleanpng.com/20190611/lpa/kisspng-logo-portable-network-graphics-image-brand-r-png-sorgusuna-uygun-resimleri-bedava-indir-5d0027f9775ea4.2689206515602913214889.jpg"
                 alt="Tabler"
                 style={{ borderRadius: '100%' }}
                 className="navbar-brand-image px-2"
               />
-            </Link>
-            Toko Randi Firmansyah
-          </h1>
+              Toko Randi Firmansyah
+            </h1>
+          </Link>
           <div className="navbar-nav flex-row order-md-last">
             {me && (
               <div className="nav-item dropdown d-none d-md-flex me-3">
@@ -44,7 +44,7 @@ const Header = () => {
                   <li style={{ float: 'right', listStyle: null }}>
                     <Link
                       to="/carts"
-                      className="nav-link px-0 carts-icon"
+                      className="nav-link px-0 carts-icon btn-zoom"
                       data-bs-toggle="dropdown"
                       tabIndex="-1"
                       aria-label="Show notifications"
@@ -81,7 +81,7 @@ const Header = () => {
                   <li style={{ float: 'right' }}>
                     <Link
                       to="/notifications"
-                      className="nav-link px-0 carts-icon"
+                      className="btn-zoom nav-link px-0 carts-icon"
                       data-bs-toggle="dropdown"
                       tabIndex="-1"
                       aria-label="Show notifications"
@@ -124,7 +124,7 @@ const Header = () => {
             <div className="nav-item d-none d-md-flex me-3">
               <div className="btn-list">
                 {!me && (
-                  <Link to="/login" className="btn btn-outline-white">
+                  <Link to="/login" className="btn-zoom btn btn-outline-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon"
@@ -151,7 +151,7 @@ const Header = () => {
               <div className="nav-item">
                 <Link
                   to="/account"
-                  className="nav-link d-flex lh-1 text-reset p-0"
+                  className="btn-zoom  nav-link d-flex lh-1 text-reset p-0"
                 >
                   <div className="d-none d-xl-block ps-2">
                     <div>{me.name}</div>

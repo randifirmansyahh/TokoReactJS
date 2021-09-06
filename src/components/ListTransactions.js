@@ -13,7 +13,7 @@ export default function ListTransactions() {
       <table className="table table-vcenter card-table table-striped">
         <thead>
           <tr>
-            <th width="300px">Date Transaction</th>
+            <th width="200px">Date Transaction</th>
             <th>Items</th>
             <th>Total Items</th>
             <th>Total Prices</th>
@@ -43,7 +43,7 @@ export default function ListTransactions() {
                       <Link
                         key={cart.id}
                         to={`/product/${cart.product.name.replace(/\s/g, '-')}`}
-                        className="d-block"
+                        className="d-block zoom"
                       >
                         <li>{cart.product.name}</li>
                       </Link>

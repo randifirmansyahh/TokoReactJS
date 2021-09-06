@@ -65,7 +65,7 @@ export default function ListCarts() {
               {me && (
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-success btn-zoom"
                   onClick={onCheckout}
                 >
                   {isLoading ? 'Loading' : 'Checkout'}
@@ -78,13 +78,18 @@ export default function ListCarts() {
           {carts.map((cart) => (
             <tr key={cart.id} className="bayangan">
               <td>
-                <img src={cart.product?.image} width="50px" alt="" />
+                <img
+                  className="zoom-lumayan"
+                  src={cart.product?.image}
+                  width="50px"
+                  alt=""
+                />
               </td>
               <td>
                 <Link
                   key={cart.id}
                   to={`/product/${cart.product.name.replace(/\s/g, '-')}`}
-                  className="d-block"
+                  className="d-block zoom"
                 >
                   {cart.product?.name}
                 </Link>
@@ -96,14 +101,14 @@ export default function ListCarts() {
                 <div className="btn-list">
                   <button
                     type="button"
-                    className="btn btn-icon"
+                    className="btn btn-icon zoom"
                     onClick={() => handleEditQuantity('+', cart)}
                   >
                     +
                   </button>
                   <button
                     type="button"
-                    className="btn btn-icon"
+                    className="btn btn-icon zoom"
                     onClick={() => handleEditQuantity('-', cart)}
                   >
                     -

@@ -2,6 +2,7 @@ import useCategories from 'hooks/useCategories'
 import useProducts from 'hooks/useProducts'
 import ListProducts from './components/ListProducts'
 import './components/styles/styleListProduct.css'
+import './components/styles/styleAll.css'
 
 export default function Home() {
   const { products, isLoading, filter, setFilter } = useProducts()
@@ -20,7 +21,7 @@ export default function Home() {
                   {isLoadingCategories && 'Loading Categories ...'}
                   {!isLoadingCategories && (
                     <select
-                      className="form-select select-box"
+                      className="form-select select-box zoom"
                       onChange={(e) =>
                         setFilter((filter) => ({
                           ...filter,
@@ -40,7 +41,7 @@ export default function Home() {
                 <div className="me-3">
                   {!filter.category && (
                     <select
-                      className="form-select select-box"
+                      className="form-select select-box zoom"
                       onChange={(e) =>
                         setFilter((filter) => ({
                           ...filter,

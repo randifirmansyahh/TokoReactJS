@@ -33,7 +33,7 @@ export default function ListNotifications() {
                 {notification.status == false ? (
                   <h3 className="text-pesan-baru">~ Pesan baru</h3>
                 ) : (
-                  <Link to={`/transactions`} className="d-block">
+                  <Link to={`/transactions`} className="d-block zoom">
                     {notification.message}. Klik untuk detail transaksi
                   </Link>
                 )}
@@ -43,7 +43,7 @@ export default function ListNotifications() {
                   <div className="btn-list">
                     <button
                       type="button"
-                      className="btn btn-icon dibaca"
+                      className="btn btn-icon btn-primary ms-auto btn-hover btn-zoom"
                       onClick={() => onRead(notification.id)}
                     >
                       <div className="icon-button">

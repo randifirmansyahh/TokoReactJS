@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import PropTypes from 'prop-types'
 import './styles/styleListProduct.css'
+import './styles/styleAll.css'
 
 function ListProducts({ products, isLoading }) {
   const { addToCart } = useContext(CartContext)
@@ -14,7 +15,7 @@ function ListProducts({ products, isLoading }) {
           {isLoading && 'Loading products... '}
           {!isLoading &&
             products.map((product) => (
-              <div className="col-6 col-lg-3 bayangan-hover" key={product.id}>
+              <div className="col-6 col-lg-3 zoom-product" key={product.id}>
                 <div className="card card-sm">
                   <Link to={`/product/${product.slug}`} className="d-block">
                     <img src={product.image} className="card-img-top" />
@@ -34,7 +35,7 @@ function ListProducts({ products, isLoading }) {
                     <div className="d-flex">
                       <button
                         type="button"
-                        className="btn btn-primary ms-auto btn-hover"
+                        className="btn btn-primary ms-auto btn-hover btn-zoom"
                         onClick={() => addToCart(product)}
                       >
                         Add to Cart

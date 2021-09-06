@@ -22,7 +22,9 @@ const Navigation = () => {
         <div className="navbar navbar-light">
           <div className="container-xl">
             <ul className="navbar-nav">
-              <li className={`nav-item ${pathname === '/' ? 'active' : ''}`}>
+              <li
+                className={`nav-item zoom ${pathname === '/' ? 'active' : ''}`}
+              >
                 <NavLink to="/" className="nav-link">
                   <span className="nav-link-icon d-md-none d-lg-inline-block">
                     <svg
@@ -47,7 +49,7 @@ const Navigation = () => {
                 </NavLink>
               </li>
               <li
-                className={`nav-item ${
+                className={`nav-item zoom ${
                   pathname === '/transactions' ? 'active' : ''
                 }`}
               >
@@ -80,7 +82,9 @@ const Navigation = () => {
                 </NavLink>
               </li>
               <li
-                className={`nav-item ${pathname === '/carts' ? 'active' : ''}`}
+                className={`nav-item zoom ${
+                  pathname === '/carts' ? 'active' : ''
+                }`}
               >
                 <NavLink to="/carts" className="nav-link">
                   <span className="nav-link-icon d-md-none d-lg-inline-block">
@@ -110,7 +114,7 @@ const Navigation = () => {
                 </NavLink>
               </li>
               <li
-                className={`nav-item ${
+                className={`nav-item zoom ${
                   pathname === '/notifications' ? 'active' : ''
                 }`}
               >
@@ -144,7 +148,7 @@ const Navigation = () => {
               {me && (
                 <NavLink
                   to="/logout"
-                  className="btn btn-outline-red"
+                  className="btn btn-outline-red zoom"
                   target="_blank"
                   rel="noreferrer"
                   onClick={(e) => {

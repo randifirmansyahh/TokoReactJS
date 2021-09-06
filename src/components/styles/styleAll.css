@@ -1,3 +1,51 @@
 .bayangan:hover {
   background-color: #ebebeb;
 }
+
+.btn-hover:hover {
+  background-color: green;
+  color: white;
+}
+
+.zoom {
+  transition: transform 0.2s; /* Animation */
+}
+
+.btn-zoom {
+  transition: transform 0.2s; /* Animation */
+}
+
+.btn-zoom:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.zoom:hover {
+  transform: scale(
+    1.1
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.zoom-foto-gede {
+  transition: transform 0.2s;
+}
+
+.zoom-foto-gede:hover {
+  transform: scale(100);
+}
+
+.zoom-lumayan {
+  transition: transform 0.2s;
+}
+
+.zoom-lumayan:hover {
+  transform: scale(2);
+}
+
+.zoom-product {
+  transition: transform 0.2s;
+}
+
+.zoom-product:hover {
+  transform: scale(1.05);
+}
