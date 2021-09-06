@@ -158,17 +158,7 @@ const Header = () => {
                   className="btn-zoom  nav-link d-flex lh-1 text-reset p-0"
                 >
                   <div className="d-none d-xl-block ps-2">
-                    <div>
-                      <image
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuNYMYNaRi00Ov27G9c0fNpMJP5NQJ06A6eYNGDPMpfvDvfOPuuA13FcP9ftMIIunqdM&usqp=CAU"
-                        alt="Tabler"
-                        style={{
-                          borderRadius: '100%',
-                        }}
-                        className="navbar-brand-image px-2"
-                      />
-                      {me.name}
-                    </div>
+                    <div>{me.name}</div>
                   </div>
                 </Link>
               </div>

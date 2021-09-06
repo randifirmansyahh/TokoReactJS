@@ -89,7 +89,7 @@ export default function ListNotifications() {
                 <br />
                 <br />
                 <Link to="/carts">
-                  <button className="btn btn-dark">
+                  <button className="btn btn-dark btn-zoom">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon"

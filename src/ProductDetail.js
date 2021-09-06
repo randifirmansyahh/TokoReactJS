@@ -11,13 +11,15 @@ export default function ProductDetail({ match }) {
 
   return (
     <>
-      <div className="container-xl">
+      <div className="container-xl text-light">
         <div className="page-header d-print-none">
           <div className="row align-items-center">
             <div className="col">
               <ol className="breadcrumb" aria-label="breadcrumbs">
                 <li className="breadcrumb-item">
-                  <Link to="/">Products</Link>
+                  <Link to="/" className="text-light">
+                    Products
+                  </Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {product && product.name}
