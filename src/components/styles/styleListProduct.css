@@ -8,3 +8,11 @@
   padding: 1px 1px 1px 1px;
   border-radius: 5px;
 }
+
+.select-box {
+  background-color: white;
+}
+
+.select-box:hover {
+  cursor: pointer;
+}

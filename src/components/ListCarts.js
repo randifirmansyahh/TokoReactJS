@@ -80,7 +80,15 @@ export default function ListCarts() {
               <td>
                 <img src={cart.product?.image} width="50px" alt="" />
               </td>
-              <td>{cart.product?.name}</td>
+              <td>
+                <Link
+                  key={cart.id}
+                  to={`/product/${cart.product.name.replace(/\s/g, '-')}`}
+                  className="d-block"
+                >
+                  {cart.product?.name}
+                </Link>
+              </td>
               <td>Rp. {formatNumber(cart.product?.price)}</td>
               <td>{formatNumber(cart.quantity)} pcs</td>
               <td>Rp. {formatNumber(cart.product?.price * cart.quantity)}</td>

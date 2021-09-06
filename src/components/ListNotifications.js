@@ -33,7 +33,9 @@ export default function ListNotifications() {
                 {notification.status == false ? (
                   <h3 className="text-pesan-baru">~ Pesan baru</h3>
                 ) : (
-                  notification.message
+                  <Link to={`/transactions`} className="d-block">
+                    {notification.message}. Klik untuk detail transaksi
+                  </Link>
                 )}
               </td>
               <td>

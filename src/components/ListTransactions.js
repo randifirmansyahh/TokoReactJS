@@ -40,7 +40,13 @@ export default function ListTransactions() {
                 <td>
                   <ul>
                     {transaction.carts.map((cart) => (
-                      <li key={cart.id}>{cart.product.name}</li>
+                      <Link
+                        key={cart.id}
+                        to={`/product/${cart.product.name.replace(/\s/g, '-')}`}
+                        className="d-block"
+                      >
+                        <li>{cart.product.name}</li>
+                      </Link>
                     ))}
                   </ul>
                 </td>
