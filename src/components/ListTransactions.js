@@ -16,7 +16,7 @@ export default function ListTransactions() {
             <th>Items</th>
             <th>Total Items</th>
             <th>Total Prices</th>
-            <th width="150px">Status</th>
+            <th width="150px"></th>
           </tr>
         </thead>
         <tbody>

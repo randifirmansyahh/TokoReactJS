@@ -96,7 +96,7 @@ export default function ListNotifications() {
               </td>
             </tr>
           ))}
-          {notifications.length === 0 && (
+          {notif.length === 0 && (
             <tr>
               <td colSpan={5} align="center">
                 Tidak ada notifikasi
