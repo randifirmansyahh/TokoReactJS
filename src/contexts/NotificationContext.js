@@ -25,7 +25,7 @@ export default function NotificationContextProvider({ children }) {
     try {
       await notificationService.setAsRead(
         {
-          status: 0,
+          status: true,
         },
         message,
       )

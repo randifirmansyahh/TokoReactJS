@@ -3,6 +3,7 @@ import useTransactions from 'hooks/useTransactions'
 import { formatNumber } from 'utils/number'
 import './styles/styleListTransactions.css'
 import './styles/styleAll.css'
+import { Link } from 'react-router-dom'
 
 export default function ListTransactions() {
   const [transactions, isLoading] = useTransactions()
@@ -74,7 +75,15 @@ export default function ListTransactions() {
           {transactions.length === 0 && (
             <tr>
               <td colSpan={5} align="center">
-                Data tidak tersedia
+                <br />
+                <br />
+                Belum ada barang yang di checkout nih, yuk checkout makanan
+                favoritmu sekarang !
+                <br />
+                <br />
+                <Link to="/carts">
+                  <button className="btn btn-success">CheckOut</button>
+                </Link>
               </td>
             </tr>
           )}

@@ -1,6 +1,8 @@
 import useCheckout from 'hooks/useCheckout'
+import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext'
+import { NotificationContext } from '../contexts/NotificationContext'
 import { AuthContext } from 'contexts/AuthContext'
 import { formatNumber } from 'utils/number'
 import { confirmAlert } from 'react-confirm-alert'
@@ -16,6 +18,8 @@ export default function ListCarts() {
     getTotalQuantity,
     handleEditQuantity,
   } = useContext(CartContext)
+
+  const { getNotification } = useContext(NotificationContext)
 
   const [handleCheckout, isLoading] = useCheckout()
   const { me } = useContext(AuthContext)
@@ -38,6 +42,7 @@ export default function ListCarts() {
           onClick: async () => {
             await handleCheckout()
             getCart()
+            getNotification()
           },
         },
       ],
@@ -102,7 +107,14 @@ export default function ListCarts() {
           {carts.length === 0 && (
             <tr>
               <td colSpan={5} align="center">
+                <br />
+                <br />
                 Yah keranjangmu kosong, ayo cari makanan favoritmu sekarang !
+                <br />
+                <br />
+                <Link to="/">
+                  <button className="btn btn-success">Cari Makanan</button>
+                </Link>
               </td>
             </tr>
           )}

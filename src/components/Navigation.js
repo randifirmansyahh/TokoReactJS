@@ -3,12 +3,18 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import { confirmAlert } from 'react-confirm-alert'
 import { CartContext } from 'contexts/CartContext'
+import { NotificationContext } from './../contexts/NotificationContext'
 
 const Navigation = () => {
   const location = useLocation()
   const { pathname } = location
   const { me, signOut } = useContext(AuthContext)
-  const { getCart } = useContext(CartContext)
+  const { getCart, getTotalQuantity } = useContext(CartContext)
+  const { getTotalMessage } = useContext(NotificationContext)
+
+  const totalQuantity = getTotalQuantity()
+  const totalMessage = getTotalMessage()
+
   return (
     <div className="navbar-expand-md">
       <div className="collapse navbar-collapse" id="navbar-menu">
@@ -94,6 +100,9 @@ const Navigation = () => {
                     </svg>
                   </span>
                   <span className="nav-link-title">Carts</span>
+                  {totalQuantity > 0 ? (
+                    <span className="badge bg-red">{totalQuantity}</span>
+                  ) : null}
                 </NavLink>
               </li>
               <li
@@ -121,6 +130,9 @@ const Navigation = () => {
                     </svg>
                   </span>
                   <span className="nav-link-title">Notification</span>
+                  {totalMessage > 0 ? (
+                    <span className="badge bg-red">{totalMessage}</span>
+                  ) : null}
                 </NavLink>
               </li>
             </ul>

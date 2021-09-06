@@ -72,7 +72,9 @@ const Header = () => {
                           <path d="M17 17h-11v-14h-2" />
                           <path d="M6 5l14 1l-1 7h-13" />
                         </svg>
-                        <span className="badge bg-red">{totalQuantity}</span>
+                        {totalQuantity > 0 ? (
+                          <span className="badge bg-red">{totalQuantity}</span>
+                        ) : null}
                       </AnimateOnChange>
                     </Link>
                   </li>
@@ -109,7 +111,9 @@ const Header = () => {
                           <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
                           <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
                         </svg>
-                        <span className="badge bg-red">{totalMessage}</span>
+                        {totalMessage > 0 ? (
+                          <span className="badge bg-red">{totalMessage}</span>
+                        ) : null}
                       </AnimateOnChange>
                     </Link>
                   </li>

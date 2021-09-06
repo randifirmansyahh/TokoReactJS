@@ -1,25 +1,16 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { NotificationContext } from '../contexts/NotificationContext'
 import './styles/styleListNotifikasi.css'
 import './styles/styleAll.css'
+import { Link } from 'react-router-dom'
 
 export default function ListNotifications() {
   const { notifications, getNotifications, handleReadMessage } =
     useContext(NotificationContext)
 
-  const [notif, setNotif] = useState(notifications)
-
   const onRead = (id) => {
     handleReadMessage(id)
     ;async () => await getNotifications()
-  }
-
-  const select = (type) => {
-    if (type == 'semua') setNotif(notifications)
-    else if (type == 'dibaca')
-      setNotif(notifications.filter((x) => x.status == true))
-    else if (type == 'belum')
-      setNotif(notifications.filter((x) => x.status == false))
   }
 
   return (
@@ -30,23 +21,11 @@ export default function ListNotifications() {
             <th width="15%">Tanggal</th>
             <th width="10%">Jam</th>
             <th width="60%">Pesan</th>
-            <th width="20%">
-              <select
-                className="select-notif form-select"
-                id="pilih"
-                onChange={() => {
-                  select(document.getElementById('pilih').value)
-                }}
-              >
-                <option value="semua">Semua Pesan</option>
-                <option value="dibaca">Dibaca</option>
-                <option value="belum">Belum dibaca</option>
-              </select>
-            </th>
+            <th width="20%"></th>
           </tr>
         </thead>
         <tbody>
-          {notif.map((notification) => (
+          {notifications.map((notification) => (
             <tr key={notification.id} className="bayangan">
               <td>{notification.createdAt.substring(0, 10)}</td>
               <td>{notification.createdAt.substring(11, 16)}</td>
@@ -96,10 +75,18 @@ export default function ListNotifications() {
               </td>
             </tr>
           ))}
-          {notif.length === 0 && (
+          {notifications.length === 0 && (
             <tr>
               <td colSpan={5} align="center">
-                Tidak ada notifikasi
+                <br />
+                <br />
+                Belum ada notifikasi nih, yuk checkout makanan favoritmu
+                sekarang !
+                <br />
+                <br />
+                <Link to="/carts">
+                  <button className="btn btn-success">CheckOut</button>
+                </Link>
               </td>
             </tr>
           )}
