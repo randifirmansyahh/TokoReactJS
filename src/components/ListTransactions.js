@@ -10,15 +10,17 @@ export default function ListTransactions() {
 
   return (
     <div className="table-responsive">
-      <table className="table table-vcenter card-table table-striped">
+      <table className="table table-vcenter card-table">
         <thead>
-          <tr>
-            <th width="200px">Date Transaction</th>
-            <th>Items</th>
-            <th>Total Items</th>
-            <th>Total Prices</th>
-            <th width="150px"></th>
-          </tr>
+          {transactions.length > 0 ? (
+            <tr className="table-dark">
+              <th width="200px">Date Transaction</th>
+              <th>Items</th>
+              <th>Total Items</th>
+              <th>Total Prices</th>
+              <th width="150px"></th>
+            </tr>
+          ) : null}
         </thead>
         <tbody>
           {isLoading && (
@@ -43,7 +45,7 @@ export default function ListTransactions() {
                       <Link
                         key={cart.id}
                         to={`/product/${cart.product.name.replace(/\s/g, '-')}`}
-                        className="d-block zoom"
+                        className="d-block zoom text-blue"
                       >
                         <li>{cart.product.name}</li>
                       </Link>
@@ -83,12 +85,32 @@ export default function ListTransactions() {
               <td colSpan={5} align="center">
                 <br />
                 <br />
-                Belum ada barang yang di checkout nih, yuk checkout makanan
+                Belum ada makanan yang di checkout nih, yuk checkout makanan
                 favoritmu sekarang !
                 <br />
                 <br />
                 <Link to="/carts">
-                  <button className="btn btn-success">CheckOut</button>
+                  <button className="btn btn-dark btn-zoom">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="6" cy="19" r="2" />
+                      <circle cx="17" cy="19" r="2" />
+                      <path d="M17 17h-11v-14h-2" />
+                      <path d="M6 5l14 1l-1 7h-13" />
+                    </svg>
+                    CheckOut
+                  </button>
                 </Link>
               </td>
             </tr>

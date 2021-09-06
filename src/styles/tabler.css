@@ -10346,6 +10346,7 @@ body :hover::-webkit-scrollbar-thumb {
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: #222831;
 }
 @media print {
   .page-wrapper {

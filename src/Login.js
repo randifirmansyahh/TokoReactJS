@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { AuthContext } from 'contexts/AuthContext'
 import { useContext } from 'react'
+import './components/styles/styleAll.css'
 
 export default function Login() {
   const { signIn } = useContext(AuthContext)
@@ -61,7 +62,26 @@ export default function Login() {
               </div>
 
               <div className="form-footer">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-dark w-100 btn-hover zoom"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                    <path d="M20 12h-13l3 -3m0 6l-3 -3" />
+                  </svg>
                   Sign in
                 </button>
               </div>

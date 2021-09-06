@@ -6,6 +6,7 @@ import { AuthContext } from 'contexts/AuthContext'
 import { NotificationContext } from './../contexts/NotificationContext'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import './styles/styleHeader.css'
+import './styles/styleAll.css'
 
 const Header = () => {
   const { getTotalQuantity } = useContext(CartContext)
@@ -16,7 +17,7 @@ const Header = () => {
   const totalMessage = getTotalMessage()
   return (
     <>
-      <header className="navbar navbar-expand-md navbar-light d-print-none">
+      <header className="navbar navbar-expand-md navbar-dark d-print-none">
         <div className="container-xl">
           <button
             className="navbar-toggler"
@@ -124,7 +125,10 @@ const Header = () => {
             <div className="nav-item d-none d-md-flex me-3">
               <div className="btn-list">
                 {!me && (
-                  <Link to="/login" className="btn-zoom btn btn-outline-white">
+                  <Link
+                    to="/login"
+                    className="btn-zoom btn btn-outline-green zoom btn-hover"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon"
@@ -154,7 +158,17 @@ const Header = () => {
                   className="btn-zoom  nav-link d-flex lh-1 text-reset p-0"
                 >
                   <div className="d-none d-xl-block ps-2">
-                    <div>{me.name}</div>
+                    <div>
+                      <image
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuNYMYNaRi00Ov27G9c0fNpMJP5NQJ06A6eYNGDPMpfvDvfOPuuA13FcP9ftMIIunqdM&usqp=CAU"
+                        alt="Tabler"
+                        style={{
+                          borderRadius: '100%',
+                        }}
+                        className="navbar-brand-image px-2"
+                      />
+                      {me.name}
+                    </div>
                   </div>
                 </Link>
               </div>

@@ -1,6 +1,17 @@
-.garis-total {
-  width: 100%;
-  height: 2px;
+.plus:hover {
   background-color: green;
-  margin: 10px 0 10px 0;
+  color: white;
+}
+
+.minus:hover {
+  background-color: red;
+  color: white;
+}
+
+.plus {
+  color: green;
+}
+
+.minus {
+  color: red;
 }

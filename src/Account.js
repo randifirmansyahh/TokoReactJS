@@ -6,6 +6,7 @@ import { AuthContext } from 'contexts/AuthContext'
 import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import useUpdateProfile from 'hooks/useUpdateProfile'
+import './components/styles/styleAll.css'
 
 export default function Account() {
   const history = useHistory()
@@ -121,7 +122,10 @@ export default function Account() {
 
                   <div className="card-footer">
                     <div className="d-flex">
-                      <button type="submit" className="btn btn-primary ms-auto">
+                      <button
+                        type="submit"
+                        className="btn btn-primary ms-auto btn-hover zoom"
+                      >
                         {isLoading ? 'Loading...' : 'Simpan'}
                       </button>
                     </div>

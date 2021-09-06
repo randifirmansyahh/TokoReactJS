@@ -13,7 +13,7 @@ export default function Home() {
         <div className="page-header d-print-none">
           <div className="row align-items-center">
             <div className="col">
-              <h2 className="page-title">Products</h2>
+              <h2 className="page-title text-light">Products</h2>
             </div>
             <div className="col-auto ms-auto d-print-none">
               <div className="d-flex">
