@@ -14,7 +14,7 @@ export default function ListTransactions() {
 
   const [trans, setTrans] = useState(transactions)
 
-  setTimeout(() => setFirst(false), 500)
+  setTimeout(() => setFirst(false), 600)
 
   setTimeout(() => (first ? setTrans(transactions) : null), 500)
 

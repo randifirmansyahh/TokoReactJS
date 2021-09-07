@@ -16,6 +16,28 @@ export default function ListNotifications() {
   const onRead = (id) => {
     handleReadMessage(id)
     ;async () => await getNotifications()
+    setBoleh(true)
+  }
+
+  const [notif, setNotif] = useState([])
+
+  const [boleh, setBoleh] = useState(true)
+
+  setTimeout(() => {
+    boleh ? setNotif(notifications) : null
+  }, 100)
+
+  const pilihan = (type) => {
+    if (type == 'dibaca') {
+      setBoleh(false)
+      setNotif(notifications.filter((x) => x.status == true))
+    } else if (type == 'belum') {
+      setBoleh(false)
+      setNotif(notifications.filter((x) => x.status == false))
+    } else {
+      setBoleh(true)
+      setNotif(notifications)
+    }
   }
 
   return (
@@ -32,12 +54,23 @@ export default function ListNotifications() {
                     <th width="15%">Tanggal</th>
                     <th width="10%">Jam</th>
                     <th width="60%">Pesan</th>
-                    <th width="20%"></th>
+                    <th width="180px">
+                      <select
+                        id="tipe"
+                        style={{ backgroundColor: '#112031', color: 'white' }}
+                        className="form-select select-hover zoom"
+                        onChange={(e) => pilihan(e.target.value)}
+                      >
+                        <option value="semua">Semua</option>
+                        <option value="dibaca">Dibaca</option>
+                        <option value="belum">Belum Dibaca</option>
+                      </select>
+                    </th>
                   </tr>
                 ) : null}
               </thead>
               <tbody>
-                {notifications.map((notification) => (
+                {notif.map((notification) => (
                   <tr key={notification.id} className="bayangan">
                     <td>{notification.createdAt.substring(0, 10)}</td>
                     <td>{notification.createdAt.substring(11, 16)}</td>
@@ -132,6 +165,17 @@ export default function ListNotifications() {
                           CheckOut
                         </button>
                       </Link>
+                    </td>
+                  </tr>
+                )}
+                {notif.length === 0 && (
+                  <tr>
+                    <td colSpan={5} align="center">
+                      <br />
+                      <br />
+                      Belum ada pesan, Silahkan pilih kategori lain
+                      <br />
+                      <br />
                     </td>
                   </tr>
                 )}
