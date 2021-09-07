@@ -61,7 +61,7 @@ export default function Account() {
             <div className="page-header d-print-none">
               <div className="row align-items-center">
                 <div className="col">
-                  <h2 className="page-title">My Account</h2>
+                  <h2 className="page-title text-light">My Account</h2>
                 </div>
               </div>
             </div>
