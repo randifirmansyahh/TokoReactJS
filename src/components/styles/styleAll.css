@@ -49,3 +49,7 @@
 .zoom-product:hover {
   transform: scale(1.05);
 }
+
+.select-hover:hover {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import Loader from 'react-loader-spinner'
 
-const FirstLoading = () => {
+const Loading = () => {
   return (
     <div className="container">
       <div
@@ -13,4 +13,4 @@ const FirstLoading = () => {
   )
 }
 
-export default FirstLoading
+export default Loading
