@@ -16,9 +16,7 @@ function ListProducts({ products, isLoading }) {
   return (
     <>
       {first ? (
-        <div className="bg-white" style={{ paddingTop: 20, paddingBottom: 20 }}>
-          <LoadingPage />
-        </div>
+        <LoadingPage />
       ) : (
         <>
           <div className="container-xl">
