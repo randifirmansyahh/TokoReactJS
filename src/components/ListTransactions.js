@@ -12,11 +12,23 @@ export default function ListTransactions() {
 
   const [first, setFirst] = useState(true)
 
+  const [trans, setTrans] = useState(transactions)
+
   setTimeout(() => setFirst(false), 500)
+
+  setTimeout(() => (first ? setTrans(transactions) : null), 500)
+
+  const pilihan = (type) => {
+    if (type == 'dibayar')
+      setTrans(transactions.filter((x) => x.status == true))
+    else if (type == 'belum')
+      setTrans(transactions.filter((x) => x.status == false))
+    else setTrans(transactions)
+  }
 
   return (
     <>
-      {first ? (
+      {first && trans == 0 ? (
         <LoadingPage />
       ) : (
         <>
@@ -25,11 +37,22 @@ export default function ListTransactions() {
               <thead>
                 {transactions.length > 0 ? (
                   <tr className="table-dark">
-                    <th width="200px">Date Transaction</th>
+                    <th width="250px">Date Transaction</th>
                     <th>Items</th>
                     <th>Total Items</th>
                     <th>Total Prices</th>
-                    <th width="150px"></th>
+                    <th width="180px">
+                      <select
+                        id="tipe"
+                        style={{ backgroundColor: '#112031', color: 'white' }}
+                        className="form-select select-hover zoom"
+                        onChange={(e) => pilihan(e.target.value)}
+                      >
+                        <option value="semua">Semua</option>
+                        <option value="dibayar">Dibayar</option>
+                        <option value="belum">Belum Dibayar</option>
+                      </select>
+                    </th>
                   </tr>
                 ) : null}
               </thead>
@@ -42,7 +65,8 @@ export default function ListTransactions() {
                   </tr>
                 )}
                 {!isLoading &&
-                  transactions.map((transaction) => (
+                  trans.length > 0 &&
+                  trans.map((transaction) => (
                     <tr key={transaction.id} className="bayangan">
                       <td>
                         {format(
@@ -61,7 +85,9 @@ export default function ListTransactions() {
                               )}`}
                               className="d-block zoom text-blue"
                             >
-                              <li>{cart.product.name}</li>
+                              <li style={{ paddingTop: 12 }}>
+                                {cart.product.name}
+                              </li>
                             </Link>
                           ))}
                         </ul>
@@ -96,6 +122,42 @@ export default function ListTransactions() {
                       </td>
                     </tr>
                   ))}
+
+                {trans.length == 0 && transactions.length > 0 && !first && (
+                  <tr>
+                    <td colSpan={5} align="center">
+                      <br />
+                      <br />
+                      Belum ada order makanan yang dibayar nih ! Gapapa karna
+                      API nya belum ada, yuk checkout lagi !
+                      <br />
+                      <br />
+                      <Link to="/carts">
+                        <button className="btn btn-dark btn-zoom">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="6" cy="19" r="2" />
+                            <circle cx="17" cy="19" r="2" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                          </svg>
+                          CheckOut
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                )}
 
                 {transactions.length === 0 && (
                   <tr>
