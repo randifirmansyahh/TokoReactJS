@@ -9,8 +9,9 @@ const Navigation = () => {
   const location = useLocation()
   const { pathname } = location
   const { me, signOut } = useContext(AuthContext)
-  const { getTotalQuantity } = useContext(CartContext)
-  const { notifications, getTotalMessage } = useContext(NotificationContext)
+  const { getCart, getTotalQuantity } = useContext(CartContext)
+  const { notifications, getNotification, getTotalMessage } =
+    useContext(NotificationContext)
 
   const totalQuantity = getTotalQuantity()
   const totalMessage = getTotalMessage()
@@ -176,6 +177,8 @@ const Navigation = () => {
                           label: 'Yes',
                           onClick: () => {
                             signOut()
+                            getCart()
+                            getNotification()
                           },
                         },
                         {

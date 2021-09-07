@@ -24,6 +24,7 @@ export default function AuthContextProvider({ children }) {
     if (resp) {
       NotificationManager.success('Login Success', 'Success')
       localStorage.setItem('token', resp.token)
+      localStorage.setItem('masuk', true)
       await getMe()
       history.goBack()
     }

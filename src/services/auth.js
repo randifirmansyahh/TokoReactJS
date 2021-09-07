@@ -25,6 +25,10 @@ const signin = (body) => {
 
 const getMe = async () => {
   const response = await api.get(`auth/me`).catch((err) => console.log(err))
+  setTimeout(() => {
+    localStorage.getItem('masuk') ? window.location.reload() : null
+    localStorage.removeItem('masuk')
+  }, 1)
   return response ? response.data.data : null
 }
 
